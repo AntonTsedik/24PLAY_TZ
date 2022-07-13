@@ -12,6 +12,7 @@ public class PlayerMoveTouch : MonoBehaviour
     private float moveSpeed = 7.5f;
 
     [SerializeField] GameObject StartMenu;
+    [SerializeField] GameObject WarpEffect;
 
 
     private void Start()
@@ -28,6 +29,7 @@ public class PlayerMoveTouch : MonoBehaviour
         
         if (Input.touchCount > 0)
         {
+            WarpEffect.SetActive(true);
             isMoving = true;
             touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Moved)

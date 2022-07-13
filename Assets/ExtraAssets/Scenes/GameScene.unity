@@ -185,6 +185,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7499209467646926844, guid: 085ad57d0f0d5924f8ec77fd5eeb27f9, type: 3}
   m_PrefabInstance: {fileID: 7785544092144873894}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &46922957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7853053968035830558, guid: a13ee35630b4bc2478b0b170bb3c94ea, type: 3}
+  m_PrefabInstance: {fileID: 2118546828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &105724806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1790,6 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartMenu: {fileID: 1434059747}
+  WarpEffect: {fileID: 46922957}
 --- !u!4 &1531150822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8468905800350330301, guid: 52257005b6f33034eb2466fc67189036, type: 3}
