@@ -14,7 +14,6 @@ public class PlayerMoveTouch : MonoBehaviour
     [SerializeField] GameObject StartMenu;
     [SerializeField] GameObject WarpEffect;
 
-
     private void Start()
     {
         speedModifier = 0.01f;
@@ -23,7 +22,7 @@ public class PlayerMoveTouch : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
+            transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward, Space.World);
             StartMenu.SetActive(false);
         }
         

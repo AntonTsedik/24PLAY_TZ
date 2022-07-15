@@ -11,13 +11,12 @@ public class YellowCube : MonoBehaviour
         this.cubeholder = cubeholder;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider cube)
     {
-        if (other.gameObject.CompareTag("RedCube"))
+        if (cube.gameObject.CompareTag("RedCube"))
         {
             cubeholder.CubesDecrese(this.gameObject);
             transform.SetParent(null);
         }
     }
-
 }

@@ -15,24 +15,22 @@ public class CubeHolder : MonoBehaviour
         Cubes = new List<GameObject>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider cube)
     {
-        if (other.transform.CompareTag("YellowCube"))
+        if (cube.transform.CompareTag("YellowCube"))
         {
-
-            if (Cubes.Contains(other.gameObject))
+            if (Cubes.Contains(cube.gameObject))
             {
                 return;
             }
 
-            Transform Cube = other.transform;
-            Cube.gameObject.layer = LayerMask.NameToLayer("CubeStack");
-            Cubes.Insert(0, other.gameObject);
+            cube.transform.gameObject.layer = LayerMask.NameToLayer("CubeStack");
+            Cubes.Insert(0, cube.gameObject);
+            cube.transform.SetParent(StackParent);
 
-            Cube.SetParent(StackParent);
             if (Cubes.Count > 1)
             {
-                Cube.transform.localPosition = Cubes[1].transform.localPosition;
+                cube.transform.localPosition = Cubes[1].transform.localPosition;
             }
             
             for (int i = 1; i < Cubes.Count; i++)
@@ -41,13 +39,12 @@ public class CubeHolder : MonoBehaviour
             }
 
             StickMan.position += Vector3.up;
-            other.GetComponent<YellowCube>().SetCubeHolder(this);
+            cube.GetComponent<YellowCube>().SetCubeHolder(this);
         }
     }
     public async void CubesDecrese(GameObject yellowcube)
     {
         await Task.Delay(System.TimeSpan.FromSeconds(0.25));
-              
         int index = Cubes.IndexOf(yellowcube);
 
         if (index == -1)

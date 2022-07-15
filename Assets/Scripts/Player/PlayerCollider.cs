@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerCollider : MonoBehaviour
 {
     [SerializeField] GameObject GameOver;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider cube)
     {
-        if (other.gameObject.CompareTag("RedCube"))
+        if (cube.gameObject.CompareTag("RedCube"))
         {
             Time.timeScale = 0;
             GameOver.SetActive(true);
