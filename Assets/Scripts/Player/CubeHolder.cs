@@ -9,16 +9,22 @@ public class CubeHolder : MonoBehaviour
     [SerializeField] Transform StickMan;
     [SerializeField] Transform StackParent;
 
+    private Animator animator;
+
     List<GameObject> Cubes;
     private void Awake()
     {
         Cubes = new List<GameObject>();
+        animator = StickMan.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider cube)
     {
+
         if (cube.transform.CompareTag("YellowCube"))
         {
+            animator.SetTrigger("Jump");
+
             if (Cubes.Contains(cube.gameObject))
             {
                 return;
@@ -32,13 +38,13 @@ public class CubeHolder : MonoBehaviour
             {
                 cube.transform.localPosition = Cubes[1].transform.localPosition;
             }
-            
+
             for (int i = 1; i < Cubes.Count; i++)
             {
-                Cubes[i].transform.localPosition = Cubes[i].transform.localPosition + Vector3.up;
+                Cubes[i].transform.localPosition = Cubes[i].transform.localPosition + Vector3.up * 1.05f;
             }
 
-            StickMan.position += Vector3.up;
+            StickMan.position += Vector3.up * 1.05f;
             cube.GetComponent<YellowCube>().SetCubeHolder(this);
         }
     }
@@ -56,12 +62,12 @@ public class CubeHolder : MonoBehaviour
 
         for (int i = index; i < Cubes.Count; i++)
         {
-            Cubes[i].transform.localPosition = Cubes[i].transform.localPosition + Vector3.down;
+            Cubes[i].transform.localPosition = Cubes[i].transform.localPosition + Vector3.down * 1.05f;
         }
 
-        StickMan.position += Vector3.down;
+        StickMan.position += Vector3.down * 1.05f;
 
-        if (Cubes.Count == 0) 
+        if (Cubes.Count == 0)
         {
             Time.timeScale = 0;
             GameOver.SetActive(true);

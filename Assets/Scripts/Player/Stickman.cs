@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollider : MonoBehaviour
+public class Stickman : MonoBehaviour
 {
     [SerializeField] GameObject GameOver;
+
+
     private void OnTriggerEnter(Collider cube)
     {
         if (cube.gameObject.CompareTag("RedCube"))
