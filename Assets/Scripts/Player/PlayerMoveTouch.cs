@@ -9,7 +9,7 @@ public class PlayerMoveTouch : MonoBehaviour
     private bool isMoving = false;
     private Touch touch;
     private float speedModifier;
-    private float moveSpeed = 7.5f;
+    private float moveSpeed = 10f;
 
     [SerializeField] GameObject StartMenu;
     [SerializeField] GameObject WarpEffect;
