@@ -50,6 +50,7 @@ public class CubeHolder : MonoBehaviour
     }
     public async void CubesDecrese(GameObject yellowcube)
     {
+        animator.SetTrigger("Jump");
         await Task.Delay(System.TimeSpan.FromSeconds(0.25));
         int index = Cubes.IndexOf(yellowcube);
 
